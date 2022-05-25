@@ -1,11 +1,12 @@
 <form class="m-3" [formGroup]="userLoginFormGroup" >
     <div class="mb-3">
-      <label for="uEmail" class="form-label">Email</label>
+      <label for="uEmail" class="form-label">{{ 'Login.Email' | translate }}</label>
       <input type="Email" formControlName="email" class="form-control" name="uEmail" id="uEmail" placeholder="" required #email>
     </div>
     <div class="mb-3">
-      <label for="uPass" class="form-label">Password</label>
+      <label for="uPass" class="form-label">{{ 'Login.Password' | translate }}</label>
       <input type="password" formControlName="password" class="form-control" name="uPass" id="uPass" placeholder="" required #password>
     </div>
-    <button [disabled]="userLoginFormGroup.invalid" type="submit" class="btn btn-success" (click)="CheckRegisteration(email.value,password.value)">Login</button>
+    <button [disabled]="userLoginFormGroup.invalid" type="submit" class="btn btn-success" (click)="CheckRegisteration(email.value,password.value)">{{ 'Login.Login' | translate }}</button>
+    <p>{{ 'Login.DonotHaveAccount' | translate }}<a  routerLink="/Register" >{{ 'Login.Register' | translate }}</a>.</p>
   </form>

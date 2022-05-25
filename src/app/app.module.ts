@@ -18,9 +18,12 @@ import { AddPatientComponent } from './Components/add-patient/add-patient.compon
 import { AddAppointmentComponent } from './Components/add-appointment/add-appointment.component';
 import { PatientsComponent } from './Components/patients/patients.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
-
+import { AppMaterialModule } from './MaterialMode';
+import { AppointmentsComponent } from './Components/appointments/appointments.component';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient} from '@angular/common/http';
+import { UserAppointmentComponent } from './Components/user-appointment/user-appointment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +39,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LogoutComponent,
     AddPatientComponent,
     AddAppointmentComponent,
-    PatientsComponent
+    PatientsComponent,
+    AppointmentsComponent,
+    UserAppointmentComponent
   ],
   imports: [
     BrowserModule,
@@ -48,8 +53,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-
-    
+    AppMaterialModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  })
     
   ],
   providers: [
@@ -58,3 +70,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}

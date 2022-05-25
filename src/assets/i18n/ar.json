@@ -1,0 +1,75 @@
+{
+	"Header": {
+		"NavBar": "ناف",
+		"Home": "الصفحه الرئيسيه",
+    "Patients":"المرضي",
+    "Appointments":"المواعيد",
+    "Register":"انشاء حساب",
+    "Login":"تسجيل الدخول "
+
+	},
+  "Login":{
+    "Email":"الايميل",
+    "Password":"الباسورد",
+    "Login":"تسجيل الدخول",
+    "Register":"تسجيل الدخول",
+    "DonotHaveAccount":"ليس لديك حساب؟"
+
+  },
+  "Register":{
+    "Full Name":"الاسم بالكامل",
+    "Email":"الايميل ",
+    "Password":"الباسورد",
+    "Confirm Password":"تاكيد  ",
+    "Register":"تسجيل الدخول",
+    "HaveAccount":"  لديك حساب بالفعل؟ "
+
+  },
+  "Patients":{
+    "New Patient":"مريض جديد ",
+    "Name":"الاسم",
+    "Email":" الايميل",
+    "Age":" السن ",
+    "complaint":"الشكوي ",
+    "History":"تاريخه المرضي",
+    "Edit":"تعديل ",
+    "Delete":"حذف "
+
+
+  },
+  "AddPatient":{
+    "Add New PatientH1":"اضافة مريض جديد  ",
+    "Patient Name":"اسم المريض",
+    "Age":" السن",
+    "Email":" الايميل ",
+    "complaint":"الشكوي ",
+    "History":"تاريخه المرضي",
+    "Add New Patient":"اضافة مريض جديد"
+  
+  } ,
+  "Appointments":{
+    "NewAppointment":"حجز معاد جديد ",
+    "Patient Name":"اسم المريض",
+    "checkUPDate":" يوم الكشف",
+    "Email":" الايميل ",
+    "Telephone":"التليفون ",
+    "Edit":"تعديل",
+    "Delete":"حذف "
+  },
+  "AddAppointment":{
+    "AddNewAppointment":"حجز معاد جديد ",
+    "Patient Name":"اسم المريض",
+    "checkUPDate":" يوم الكشف",
+    "Email":" الايميل ",
+    "Telephone":"التليفون ",
+    "AddNewAp":"اضافة معاد جديد "
+  },
+  "SideBar":{
+    "Dashboard":"اللوحه ",
+    "Shortcuts":"اختصارات ",
+    "Overview":" ملخص ",
+    "Contact":" التواصل ",
+    "About":"حول ",
+    "Services":"الخدمات"
+  }
+}

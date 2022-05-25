@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IPatient } from 'src/app/Models/ipatient';
+import { IAppointment } from 'src/app/Models/iappointment';
+import { ActivatedRoute, Router } from '@angular/router';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-add-appointment',
@@ -8,20 +10,39 @@ import { IPatient } from 'src/app/Models/ipatient';
   styleUrls: ['./add-appointment.component.scss']
 })
 export class AddAppointmentComponent implements OnInit {
-  AppointmentList: IPatient[] = []
+  AppointmentList: IAppointment[] = []
+  PatientEmail: string = ''
+  newAppointment: IAppointment = {} as IAppointment;
+  dataSource: IAppointment[] = []
   NewAppointmentFormGroup: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder
+    , private router: Router
+    , private route: ActivatedRoute
+    ,private translate: TranslateService) {
     this.NewAppointmentFormGroup = fb.group({
-      name: ['', [Validators.required, Validators.minLength(3),]],
+      patientName: ['', [Validators.required, Validators.minLength(3),]],
       email: [''],
-      telephone:[''],
-      age:[''],
+      telephone: [''],
+      checkUPDate: ['']
     });
   }
-  ngOnInit(): void {
+  useLanguage(language: string): void {
+    this.translate.use(language);
   }
-  get name() {
-    return this.NewAppointmentFormGroup.controls['name'];
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      if (params.get('email') != '0') {
+        this.PatientEmail = params.get('email')!;
+        this.EditAppointment(this.PatientEmail)
+        this.NewAppointmentFormGroup.setValue({
+          patientName: this.newAppointment.patientName, checkUPDate: this.newAppointment.checkUPDate, email: this.newAppointment.email
+          ,complaint: this.newAppointment.telephone
+        });
+      }
+    })
+  }
+  get patientName() {
+    return this.NewAppointmentFormGroup.controls['patientName'];
   }
   get email() {
     return this.NewAppointmentFormGroup.controls['email'];
@@ -29,14 +50,38 @@ export class AddAppointmentComponent implements OnInit {
   get telephone() {
     return this.NewAppointmentFormGroup.controls['telephone'];
   }
-  get age() {
-    return this.NewAppointmentFormGroup.controls['age'];
+  get checkUPDate() {
+    return this.NewAppointmentFormGroup.controls['checkUPDate'];
   }
 
   AddAppointment() {
-    
-    this.AppointmentList.push(this.NewAppointmentFormGroup.value)
-    localStorage.setItem('Appointmenform-data', JSON.stringify(this.NewAppointmentFormGroup.value));
+    this.route.paramMap.subscribe(params => {
+      if (params.get('email') == '0') {
+        this.AppointmentList = JSON.parse((localStorage.getItem('Appointmenform-data')) || '[]');
+        this.AppointmentList.push(this.NewAppointmentFormGroup.value)
+        localStorage.setItem('Appointmenform-data', JSON.stringify(this.AppointmentList));
+        this.router.navigate(['/Appointments']);
+      }
+      else {
+        let Appointments: IAppointment[] = JSON.parse(localStorage.getItem('Appointmenform-data')!);
+        var index = Appointments.findIndex(p => p.email == this.PatientEmail);
+        Appointments.splice(index, 1);
+        Appointments.push(this.NewAppointmentFormGroup.value);
+        localStorage.setItem('Appointmenform-data', JSON.stringify(Appointments))
+        this.router.navigate(['/Appointments']);
+
+      }
+    });
+  }
+  EditAppointment(email: string) {
+    if (localStorage.getItem("Appointmenform-data") != null) {
+      this.dataSource = JSON.parse(localStorage.getItem('Appointmenform-data')!);
+      var index = this.dataSource.findIndex(p => p.email == this.PatientEmail);
+      this.newAppointment = this.dataSource[index];
+      console.log(this.newAppointment);
+
+    }
+
   }
 
 }

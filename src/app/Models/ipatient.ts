@@ -1,7 +1,7 @@
 export interface IPatient {
-    name:string,
+    name:  string,
     email:string,
-    age :string,
+    age :number,
     complaint:string
     History:string
 }

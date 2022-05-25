@@ -1,31 +1,31 @@
-<h3>Add New Appointment</h3>
+<h3>{{ 'AddAppointment.AddNewAppointment' | translate }}</h3>
 <form class="m-3" [formGroup]="NewAppointmentFormGroup" (ngSubmit)="AddAppointment()">
     <div class="mb-3">
-      <label for="fName" class="form-label">Patient Name</label>
-      <input type="text" formControlName="name" class="form-control" name="fName" id="fName" [class.is-valid]="name.valid"
-        [class.is-invalid]="name.invalid && name.touched">
-      <div [hidden]="name.valid || name.untouched">
-        <small *ngIf="name.errors?.['required']" id="helpId" class="form-text text-muted d-block">Patient Name is
+      <label for="fName" class="form-label">{{ 'AddAppointment.Patient Name' | translate }}</label>
+      <input type="text" formControlName="patientName" class="form-control" name="fName" id="fName" [class.is-valid]="patientName.valid"
+        [class.is-invalid]="patientName.invalid && patientName.touched">
+      <div [hidden]="patientName.valid || patientName.untouched">
+        <small *ngIf="patientName.errors?.['required']" id="helpId" class="form-text text-muted d-block">Patient Name is
           Required</small>
-        <small *ngIf="name.errors?.['minlength']" id="helpId2" class="form-text text-muted d-block">Patient Name must be 3
+        <small *ngIf="patientName.errors?.['minlength']" id="helpId2" class="form-text text-muted d-block">Patient Name must be 3
           letters at least</small>
-        <small *ngIf="name.errors?.['forbiddenName']" id="helpId3" class="form-text text-muted d-block">Patient Name can't be
-          {{name.errors?.['forbiddenName']?.value}}</small>
+        <small *ngIf="patientName.errors?.['forbiddenName']" id="helpId3" class="form-text text-muted d-block">Patient Name can't be
+          {{patientName.errors?.['forbiddenName']?.value}}</small>
       </div>
     </div>
     <div class="mb-3">
-      <label for="age" class="form-label">Age</label>
-      <input type="date" formControlName="age" class="form-control" name="age" id="age" placeholder="" required>
+      <label for="checkUPDate" class="form-label">{{ 'AddAppointment.checkUPDate' | translate }}</label>
+      <input type="date" formControlName="checkUPDate" class="form-control" name="checkUPDate" id="checkUPDate" placeholder="" required>
     </div>
     <div class="mb-3">
-      <label for="uEmail" class="form-label">Email</label>
+      <label for="uEmail" class="form-label">{{ 'AddAppointment.Email' | translate }}</label>
       <input type="Email" formControlName="email" class="form-control" name="uEmail" id="uEmail" placeholder="" required>
     </div>
     <div class="mb-3">
-      <label for="tel" class="form-label">Telephone</label>
+      <label for="tel" class="form-label">{{ 'AddAppointment.Telephone' | translate }}</label>
       <input type="tel" formControlName="telephone" class="form-control" name="tel" id="tel" placeholder="" required minlength="11">
     </div>
-    <button [disabled]="NewAppointmentFormGroup.invalid" type="submit" class="btn btn-success">Add New Appointment</button>
+    <button [disabled]="NewAppointmentFormGroup.invalid" type="submit" class="btn btn-success" >{{ 'AddAppointment.AddNewAp' | translate }}</button>
   </form>
   
   

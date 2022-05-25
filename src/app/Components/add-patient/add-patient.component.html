@@ -1,7 +1,7 @@
-<h3>Add New Patient</h3>
+<h3>{{ 'AddPatient.Add New PatientH1' | translate }}</h3>
 <form class="m-3" [formGroup]="NewPatienFormGroup" (ngSubmit)="AddPatient()">
     <div class="mb-3">
-      <label for="fName" class="form-label">Patient Name</label>
+      <label for="fName" class="form-label">{{ 'AddPatient.Patient Name' | translate }}</label>
       <input type="text" formControlName="name" class="form-control" name="fName" id="fName" [class.is-valid]="name.valid"
         [class.is-invalid]="name.invalid && name.touched">
       <div [hidden]="name.valid || name.untouched">
@@ -14,22 +14,21 @@
       </div>
     </div>
     <div class="mb-3">
-        <label for="age" class="form-label">Age</label>
-        <input type="number" formControlName="age" class="form-control" name="age" id="age" placeholder="" required>
+        <label for="age" class="form-label">{{ 'AddPatient.Age' | translate }}</label>
+        <input type="number" formControlName="age" class="form-control" name="age" id="age" placeholder="" required >
       </div>
     <div class="mb-3">
-      <label for="uEmail" class="form-label">Email</label>
-      <input type="Email" formControlName="email" class="form-control" name="uEmail" id="uEmail" placeholder="" required>
+      <label for="uEmail" class="form-label">{{ 'AddPatient.Email' | translate }}</label>
+      <input type="Email" formControlName="email" class="form-control" name="uEmail" id="uEmail" placeholder="" required >
     </div>
     <div class="mb-3">
-        <label for="complaint" class="form-label">complaint</label>
+        <label for="complaint" class="form-label">{{ 'AddPatient.complaint' | translate }}</label>
         <input type="text" formControlName="complaint" class="form-control" name="complaint" id="complaint" placeholder="" required>
       </div>
       <div class="mb-3">
-        <label for="History" class="form-label">History</label>
+        <label for="History" class="form-label">{{ 'AddPatient.History' | translate }}</label>
         <input type="text" formControlName="History" class="form-control" name="History" id="History" placeholder="" required>
       </div>
-    <button [disabled]="NewPatienFormGroup.invalid" type="submit" class="btn btn-success">Add New Patient</button>
+    <button [disabled]="NewPatienFormGroup.invalid"  class="btn btn-success" >{{ 'AddPatient.Add New Patient' | translate }}</button>
   </form>
-  
-  
+ 

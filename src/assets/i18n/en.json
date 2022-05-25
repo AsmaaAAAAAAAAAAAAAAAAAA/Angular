@@ -1,0 +1,75 @@
+{
+	"Header": {
+		"NavBar": "NavBar",
+		"Home": "Home",
+    "Patients":"Patients",
+    "Appointments":"Appointments",
+    "Register":"Register",
+    "Login":"login "
+
+	},
+  "Login":{
+    "Email":"Email",
+    "Password":"Password",
+    "Login":"Login",
+    "Register":"Register",
+    "DonotHaveAccount":"Donot Have Account? "
+
+  },
+  "Register":{
+    "Full Name":"Full Name",
+    "Email":"Email",
+    "Password":"Password",
+    "Confirm Password":"Confirm Password ",
+    "Register":"Register",
+    "HaveAccount":"Alread Have Account? "
+
+
+  },
+  "Patients":{
+    "New Patient":"New Patient",
+    "Name":"Name",
+    "Email":" Email",
+    "Age":"Age ",
+    "complaint":"complaint",
+    "History":"History",
+    "Edit":"Edit ",
+    "Delete":"Delete "
+
+  },
+  "AddPatient":{
+    "Add New PatientH1":"Add New Patient",
+    "Patient Name":"Patient Name",
+    "Age":"Age",
+    "Email":"Email",
+    "complaint":"complaint",
+    "History":"History",
+    "Add New Patient":"Add New Patient"
+  }
+  ,
+  "Appointments":{
+    "NewAppointment":"New Appointment",
+    "Patient Name":"Patient Name",
+    "checkUPDate":" checkUPDate",
+    "Email":"Email",
+    "Telephone":"Telephone",
+    "Edit":"Edit",
+    "Delete":"Delete"
+  },
+  "AddAppointment":{
+    "AddNewAppointment":" Add New Appointment ",
+    "Patient Name":"Patient Name ",
+    "checkUPDate":"checkUPDate",
+    "Email":"Email ",
+    "Telephone":"Telephone ",
+    "AddNewAp":" Add New Appointment"
+  },
+  "SideBar":{
+    "Dashboard":"Dashboard ",
+    "Shortcuts":"Shortcuts ",
+    "Overview":" Overview ",
+    "Contact":"Contact",
+    "About":"About ",
+    "Services":"Services"
+  }
+}

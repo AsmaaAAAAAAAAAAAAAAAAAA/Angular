@@ -1,3 +1,39 @@
-<a name="" id="" class="btn btn-primary m-2" [routerLink]="['/NewPatient']" role="button">New Patient</a>
+<a name="" id="" class="btn btn-primary m-2" [routerLink]="['/NewPatient','0']" role="button">{{ 'Patients.New Patient' | translate }}</a>
 <hr>
 
+<table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>{{ 'Patients.Name' | translate }} </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>{{ 'Patients.Email' | translate }}</th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef>{{ 'Patients.Age' | translate }}</th>
+      <td mat-cell *matCellDef="let element"> {{element.age }} </td>
+    </ng-container>
+    <ng-container matColumnDef="complaint">
+      <th mat-header-cell *matHeaderCellDef>{{ 'Patients.complaint' | translate }}</th>
+      <td mat-cell *matCellDef="let element"> {{element.complaint}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="History">
+      <th mat-header-cell *matHeaderCellDef>{{ 'Patients.History' | translate }}</th>
+      <td mat-cell *matCellDef="let element"> {{element.History}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Edit">
+        <th mat-header-cell *matHeaderCellDef>{{ 'Patients.Edit' | translate }}</th>
+        <td mat-cell *matCellDef="let element"><button  class="p-3 mb-2 bg-secondary text-white"  [routerLink]="['/NewPatient', element.email]" >{{ 'Patients.Edit' | translate }}</button></td>
+      </ng-container>
+      <ng-container matColumnDef="Delete">
+        <th mat-header-cell *matHeaderCellDef>{{ 'Patients.Delete' | translate }}</th>
+        <td mat-cell *matCellDef="let element"><button type="button" class="p-3 mb-2 bg-danger text-white" (click)="Delete()">{{ 'Patients.Delete' | translate }}</button></td>
+      </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
